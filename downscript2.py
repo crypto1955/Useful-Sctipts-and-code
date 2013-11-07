@@ -29,10 +29,10 @@ def dlfile(path):
 def main():
     # Iterate over image ranges
     #dlfile('http://vx.org.ua/dl/src/')
-    f=open('/home/speaker/out','r')
-    f1=open('/home/speaker/out1','r')
-    f2=open('/home/speaker/out2','r')
-    f3=open('/home/speaker/out3','r')
+    f=open('out','r')
+    f1=open('out1','r')
+    f2=open('out2','r')
+    f3=open('out3','r')
     f= f.read().split('\n')
     f1= f1.read().split('\n')
     f2= f2.read().split('\n')
